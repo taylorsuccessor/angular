@@ -24,7 +24,7 @@ export class Create {
   ngOnInit() {
 
   }
-  al: Alert,
+  //al: Alert;
 
   create() {
     this._service
