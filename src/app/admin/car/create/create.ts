@@ -24,7 +24,7 @@ export class Create {
   ngOnInit() {
 
   }
-  //al: Alert;
+//  al: Alert;
 
   create() {
     this._service
@@ -34,9 +34,12 @@ export class Create {
   checkCreateResponse(response: any) {
     if (typeof response.status !== 'undefined' && response.status == "success") {
       alert("success");
+      this.al.aler("su");
+    //  this.router.navigate(['/car']);
     } else {
-      alert(response);
-      //    this.router.navigate(['/car']);
+       alert("error");
+          this.router.navigate(['/car']);
+
     }
   }
   
