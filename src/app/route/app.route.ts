@@ -1,23 +1,17 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { AppComponent } from './../Apps/app';
+import { RouterModule, Routes } from '@angular/router';
+import { HttpModule } from '@angular/http';
 
 import * as Car from './../admin/car/index';
-import {Init} from './../commone/init/init';
-
-import { COMMON_ROUTE } from '../commone/init/common.route' ;
-
-import {ADMIN_ROUTE} from '../admin/layout/layout.routes';
-
-import { FormsModule } from '@angular/forms';
-
-import { AppComponent } from './../Apps/app';
-
-import * as Public from '../commone/index';
-
-import { RouterModule, Routes } from '@angular/router';
-
-
 import * as adminLayout from './../admin/layout/index';
+import {ADMIN_ROUTE} from '../admin/admin.routes';
+
+import * as Common from '../common/index';
+import * as CommonLayout from '../common/layout/index';
+
 
 
 
@@ -25,27 +19,12 @@ import * as adminLayout from './../admin/layout/index';
 
 const appRoutes: Routes = [
 
-//{path: 'car', component: Car.Index , data: { title: 'Car List' }},
-//{path: 'car/create', component: Car.Create, data: { title: 'Create List' }},
-//{path: 'car/:id/edit', component: Car.Edit, data: { title: 'Edit List' }},
-//{path: 'car/:id', component: Car.Show, data: { title: 'Show List' }},
-//
-//{path: 'login', component: Public.Login, data: { title: 'Test List' }},
-//{path: 'register', component: Public.Register, data: { title: 'Register List' }},
-//{path: 'recover', component: Public.Recover, data: { title: 'Recover List' }},
-
-
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-    { path: '', component: Init, data: { title: 'Login Views' }, children: COMMON_ROUTE },
+    { path: '', component: CommonLayout.Layout, data: { title: 'Login Views' }, children: CommonLayout.COMMON_ROUTE },
      { path: '', component: adminLayout.Layout,  data: { title: 'Secure Views' }, children: ADMIN_ROUTE },
-
     { path: '**', redirectTo: 'login' }
-
 ];
 
-
-
-import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -59,7 +38,7 @@ import { HttpModule } from '@angular/http';
   ],
   declarations: [
     
-    Init,
+    CommonLayout.Layout,
     
     adminLayout.Layout,
     Car.Index,
@@ -68,14 +47,15 @@ import { HttpModule } from '@angular/http';
     Car.Show,
     adminLayout.Header, adminLayout.Menu,
 
-  Public.Login,
-  Public.Register,
-   Public.Recover,
+  Common.Login,
+  Common.Register,
+   Common.Recover,
+
 AppComponent
   ],
  providers: [],
   bootstrap:    [ AppComponent],
- // bootstrap: [AppComponent],
+
 
 })
 export class AppRoute { }
