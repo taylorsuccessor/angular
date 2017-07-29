@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import * as Car from './../admin/car/index';
 import { FormsModule } from '@angular/forms';
 
-import { AppComponent } from './Apps/app';
+//import { AppComponent } from './Apps/app';
 
 import * as Public from '../commone/index';
 

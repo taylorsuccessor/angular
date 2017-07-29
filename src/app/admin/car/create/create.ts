@@ -19,7 +19,7 @@ export class Create {
 
   ) {}
 
-createStatus;
+createStatus:any;
 
   ngOnInit() {
 
