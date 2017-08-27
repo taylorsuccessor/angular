@@ -15,9 +15,10 @@ import * as adminLayout from './../admin/layout/index';
 
 const appRoutes: Routes = [
 
-{path: 'car', component: Car.Index , data: { title: 'Heroes List' }},
-{path: 'car/create', component: Car.Create, data: { title: 'Heroes List' }},
-{path: 'car/:id/edit', component: Car.Edit, data: { title: 'Heroes List' }},
+{path: 'car', component: Car.Index , data: { title: 'Car List' }},
+{path: 'car/create', component: Car.Create, data: { title: 'Create List' }},
+{path: 'car/:id/edit', component: Car.Edit, data: { title: 'Edit List' }},
+{path: 'car/:id', component: Car.Show, data: { title: 'Show List' }},
 ];
 
 
@@ -38,6 +39,7 @@ import { HttpModule } from '@angular/http';
     Car.Index,
     Car.Create,
     Car.Edit,
+    Car.Show,
     adminLayout.Header, adminLayout.Menu
   ],
   bootstrap:    [ adminLayout.Layout ],
