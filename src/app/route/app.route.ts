@@ -4,7 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import * as Car from './../admin/car/index';
 import { FormsModule } from '@angular/forms';
 
-
+//public
+import * as Public from '../common/index';
 
 
 import { RouterModule, Routes } from '@angular/router';
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
 {path: 'car/create', component: Car.Create, data: { title: 'Create List' }},
 {path: 'car/:id/edit', component: Car.Edit, data: { title: 'Edit List' }},
 {path: 'car/:id', component: Car.Show, data: { title: 'Show List' }},
+
 ];
 
 
@@ -40,7 +42,10 @@ import { HttpModule } from '@angular/http';
     Car.Create,
     Car.Edit,
     Car.Show,
-    adminLayout.Header, adminLayout.Menu
+    adminLayout.Header, adminLayout.Menu,
+    
+    Public.Login,
+  
   ],
   bootstrap:    [ adminLayout.Layout ],
 
