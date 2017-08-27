@@ -8,18 +8,12 @@ export class Service {
   constructor(private _http: Http) { }
   getAllList() {
     return this._http.get("http://localhost/api_json/select.php/")
-      .map(res=> {
-
-
-           return res.json();
-
-
-      });
+      .map(response => {  return response.json();});
   }
 
  create( request: any ) {
     return this._http.post("http://localhost/api_json/add.php",request)
-      .map(() => "");
+      .map(response => {  return response.json();});
   }
 
     delete(id: number) {
@@ -29,7 +23,7 @@ export class Service {
 
     edit(request: any ) {
     return this._http.post("http://localhost/api_json/update.php/", request)
-      .map(() => "");
+      .map(response => {  return response.json();});
   }
 
     show(id: number) {
