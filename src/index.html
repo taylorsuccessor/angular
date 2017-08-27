@@ -8,6 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
 
+   <link type="text/css" rel="stylesheet" href="\style\plugins/bower_components/jsgrid/dist/jsgrid.min.css" />
+    <link type="text/css" rel="stylesheet" href="\style\plugins/bower_components/jsgrid/dist/jsgrid-theme.min.css" />
+    
+
+
     <!-- Polyfill(s) for older browsers -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
 
@@ -65,6 +70,9 @@
   <body>
 
 
+<div class="preloader">
+    <div class="cssload-speeding-wheel"></div>
+</div>
 
 
 
@@ -78,8 +86,12 @@
 
 
 
-
-  <my-app>Loading AppComponent content here ...</my-app>
+  <my-app>
+    <div class="pre-bootstrap">
+      <div class="pre-bootstrap-text">Loading..</div>
+      <div class="pre-bootstrap-spinner"></div>
+    </div>
+    </my-app>
 
 
 

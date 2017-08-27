@@ -11,5 +11,5 @@ export class Model {
   timee: string;
   msg: string;
   type: number;
-  xxx:string;
+
 }

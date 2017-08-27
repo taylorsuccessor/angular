@@ -15,8 +15,8 @@ import * as adminLayout from './../admin/layout/index';
 
 const appRoutes: Routes = [
 
-{path: 'car',component: Car.Index,data: { title: 'Heroes List' }},
-{path: 'car/create',component: Car.Create,data: { title: 'Heroes List' }},
+{path: 'car', component: Car.Index , data: { title: 'Heroes List' }},
+{path: 'car/create', component: Car.Create, data: { title: 'Heroes List' }},
 ];
 
 
@@ -30,19 +30,13 @@ import { HttpModule } from '@angular/http';
         appRoutes
     ),
     HttpModule,
-    
     FormsModule,
-    
-    
   ],
   declarations: [
     adminLayout.Layout,
-
     Car.Index,
     Car.Create,
-
-
-    adminLayout.Header,adminLayout.Menu
+    adminLayout.Header, adminLayout.Menu
   ],
   bootstrap:    [ adminLayout.Layout ],
 
