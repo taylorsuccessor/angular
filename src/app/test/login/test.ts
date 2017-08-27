@@ -1,16 +1,16 @@
 
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../commones/service/service';
-import { User } from '../../commones/service/user';
+import { UserService } from '../../test/service/service';
+import { User } from '../../test/service/user';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 
 
 @Component({
-  selector: 'app-test',
-  templateUrl: './test.html',
+  selector: 'app-login',
+  templateUrl: './login.html',
   providers: [UserService],
 })
-export class Test implements OnInit {
+export class Login implements OnInit {
 newTrustFormVisible: false;
  loading = false;
   alert= false;
@@ -38,7 +38,7 @@ newTrustFormVisible: false;
                     this.router.navigate(['/car']);
                 }
                 else  if (data.status == 'error') {
-                             this.router.navigate(['/login']); 
+                             this.router.navigate(['/login']);
                              this.alert = true;
                           }
                 },

@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../commones/service/service';
-import { User } from '../../commones/service/user';
+import { UserService } from '../../test/service/service';
+import { User } from '../../test/service/user';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.html',
-  providers: [UserService],
+   providers: [UserService],
 })
 export class Register implements OnInit {
 newTrustFormVisible= false;
-  alert= false;
-user: any;
+  alert=false;
+user:any;
     constructor(
     private userService: UserService,
      private router: Router) { }
@@ -20,6 +20,7 @@ user: any;
 
 model = new User();
 
+  
    addUser() {
         this.newTrustFormVisible = true;
         this.userService.addUser(this.model.user, this.model.email, this.model.password, this.model.repassword)
@@ -36,19 +37,24 @@ model = new User();
                           }
                 },
                 error => {
+                 //   this.alertService.error(error);
+                 // alert("not found");
                     this.newTrustFormVisible = false;
                }
               );
     }
-
-  goBack() {
+  
+  
+  
+  goBack(){
     this.router.navigate(['/login']);
   }
-
-ref() {
+  
+  
+ref(){
     this.router.navigate(['/register']);
    this.newTrustFormVisible = false;
-  this.alert = false;
+  this.alert=false;
   }
 
 }
