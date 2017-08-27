@@ -1,4 +1,4 @@
-import { NgModule ,Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Service } from '../service/service';
 import { Model } from '../service/model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
@@ -12,24 +12,32 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
   providers: [Service],
 })
 export class Create  {
-
-  model=new Model();
-  name:string;
-  username="dddddddddd";
-  
-  constructor(
+constructor(
     private _service: Service,
-    private router: Router){}
+     private router: Router,
+    ) { }
 
-ngOnInit() {
-  
+    model= new Model ();
+ models: any;
+  ngOnInit() {
+
+      this.models = {
+        radio: this.radios[0].value, // default to Female
+   }
+
   }
-  
-  
- 
+
+
   create() {
       this._service
         .create(this.model)
-        .subscribe(() =>  this.router.navigate(['/admin/car']));
+        .subscribe(() =>  this.goBack());
   }
+   goBack() {
+    this.router.navigate(['/car']);
+  }
+  public radios = [
+{ value: 'F', display: 'Female' } ,
+{ value:'M', display: 'Male' }
+ ];
 }

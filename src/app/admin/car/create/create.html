@@ -3,19 +3,13 @@
                         <h4 class="page-title" ><b style="color: white;"> Create</b></h4>
                            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
                         <ol class="breadcrumb">
-                            <li><a routerLink="/admin/car">model</a></li>
+                            <li><a routerLink="/car">model</a></li>
                             <li class="active">Create</li>
                         </ol>
                     </div>
                     </div>
                 </div>
                 
-                
-                <div>
-	<h5>@INPUT/Input :</h5>
-	<h2>PARENT COMPONENT</h2>
-
-</div>
 
  <div class="white-box">   
    <div class="row bg-title">
@@ -33,17 +27,16 @@
                <input  #nameInput="ngModel" type="text" class="form-control" id="inputName1"  [(ngModel)]="model.name" name="name"   maxlength="7" minlength="3" placeholder="enter name" required >
                </p>
                      
-              
-
-            
-            </div>
+                     <div class="alert alert-danger" *ngIf="nameInput.errors && (nameInput.dirty || nameInput.touched)">
+                <span [hidden]="nameInput.errors.maxlength">Please enter a valid name maximum 7 & min 3 </span>     
+            </div></div>
                      </div>
                      </div>
 
 
        
 
-  <input [(ngModel)]="model.xxx"> {{model.xxx}} 
+  
                    
                                  
             <div class="col-md-6">
@@ -56,8 +49,9 @@
 
             
                                                              </p>
-                
-
+                  <div class="alert alert-danger" *ngIf="emailInput.errors && (emailInput.dirty || emailInput.touched)">
+                <span [hidden]="!emailInput.errors.pattern"> please enter a valid email </span>
+                  </div>
                   </div>
                   </div>
                   </div>
@@ -69,9 +63,9 @@
                <p class="form-control-static"   > 
                <input type="number" class="form-control"  [(ngModel)]="model.num" name="num" max="7" min="2" required #numInput="ngModel">
                </p>
-                  
-
-</div>
+                                            <div class="alert alert-danger" *ngIf="numInput.errors && (numInput.dirty || numInput.touched)">
+                <span [hidden]="numInput.errors.max">Please enter a valid number maximum 7  min 3 </span>
+            </div> </div>
 
                      </div>
                      </div>
@@ -120,7 +114,11 @@
                <label class="control-label col-md-3">Gender :</label>
                      <div class="col-md-9">
               
-            
+              <div *ngFor="let radio of radios">
+        <input type="radio" name="radio" [(ngModel)]="model.radio" [value]="radio.value">
+        {{radio.display}}     
+    </div>    
+              
                      </div>
                      </div>
                      </div>

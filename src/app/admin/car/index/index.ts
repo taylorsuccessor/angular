@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { Service } from '../service/service';
 import { Model } from '../service/model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
@@ -33,7 +32,7 @@ export class Index  {
       } );
   }
 
-    delete(id) {
+    delete(id:number) {
       this._service
         .delete(id)
         .subscribe(() => {

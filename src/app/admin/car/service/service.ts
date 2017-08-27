@@ -23,7 +23,7 @@ export class Service {
       .map(() => "");
   }
 
-    delete(id) {
+    delete(id:number) {
     return this._http.post("http://localhost/api_json/delete.php/", {'id': id})
       .map(() => this.getAllList());
   }
