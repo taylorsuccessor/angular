@@ -5,8 +5,9 @@ import * as Car from './../admin/car/index';
 import { FormsModule } from '@angular/forms';
 
 //public
-import * as Public from '../common/index';
 
+
+import * as Tt from '../test/index';
 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
 {path: 'car/:id/edit', component: Car.Edit, data: { title: 'Edit List' }},
 {path: 'car/:id', component: Car.Show, data: { title: 'Show List' }},
 
+{path: 'test', component: Tt.Test, data: { title: 'Test List' }},
 ];
 
 
@@ -43,10 +45,10 @@ import { HttpModule } from '@angular/http';
     Car.Edit,
     Car.Show,
     adminLayout.Header, adminLayout.Menu,
-    
-    Public.Login,
-  
+
+  Tt.Test,
   ],
+
   bootstrap:    [ adminLayout.Layout ],
 
 })
