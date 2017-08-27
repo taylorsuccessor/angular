@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Angular QuickStart</title>
+    <base href="/">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <script src="systemjs.config.js"></script>
+
+
+    <script>
+      System.import('main.js').catch(function(err){ console.error(err); });
+    </script>
+
+
+
+
+
+      <link rel="icon" type="image/png" sizes="16x16" href="/style/assets/website/images/whiteLogoPart.png">
+
+      <link href="style\bot\bootstrap\dist\css\bootstrap.min.css" rel="stylesheet">
+      <!-- animation CSS -->
+      <link href="style/bot/css/animate.css" rel="stylesheet">
+
+      <link href="style/bot/css/style.css" rel="stylesheet">
+
+      <link href="style/bot/css/colors/default.css" id="theme"  rel="stylesheet">
+
+
+
+
+
+<!--__________________________________________template______CSS_____________________________________________________
+
+
+
+
+
+    <link type="text/css" rel="stylesheet" href="/public/assets/elite/bootstrap/dist/css/bootstrap.min.css">
+
+    <link type="text/css" rel="stylesheet" href="/public/assets/elite/plugins/bower_components/tablesaw-master/dist/tablesaw.css">
+    <link type="text/css" rel="stylesheet" href="/public/assets/elite/css/animate.css">
+    <link type="text/css" rel="stylesheet" href="/public/assets/elite/css/style.css">
+    <link type="text/css" rel="stylesheet" href="/public/assets/elite/css/colors/default.css">
+    <link type="text/css" rel="stylesheet" href="/public/assets/elite/css/helper.css">
+    <link type="text/css" rel="stylesheet" href="/public/assets/elite/plugins/bower_components/clockpicker/dist/jquery-clockpicker.min.css">
+    <link type="text/css" rel="stylesheet" href="/public/assets/elite/plugins/bower_components/jquery-asColorPicker-master/css/asColorPicker.css">
+    <link type="text/css" rel="stylesheet" href="/public/assets/elite/plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="/public/assets/elite/plugins/bower_components/timepicker/bootstrap-timepicker.min.css">
+    <link type="text/css" rel="stylesheet" href="/public/assets/elite/plugins/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+<!--_______________________________________END___template______CSS_____________________________________________________-->
+
+
+  </head>
+
+  <body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <my-app>Loading AppComponent content here ...</my-app>
+
+
+
+
+  </body>
+
+
+  <script src="\style/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+
+  <script src="\style/bot/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script src="/style/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+
+  <script src="/style/bot/js/jquery.slimscroll.js"></script>
+
+  <script src="/style/bot/js/waves.js"></script>
+
+  <script src="\style/js/custom.min.js"></script>
+
+
+  <script src="\style/plugins/bower_components/jsgrid/db.js"></script>
+  <script type="text/javascript" src="\style/plugins/bower_components/jsgrid/dist/jsgrid.min.js"></script>
+  <script src="\style/js/jsgrid-init.js"></script>
+
+  <!--__________________________________________template______js_____________________________________________________-
+
+
+  <script src="/public/assets/elite/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/public/assets/elite/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/public/assets/elite/js/jquery.slimscroll.js"></script>
+  <script src="/public/assets/elite/js/waves.js"></script>
+  <script src="/public/assets/elite/js/custom.min.js"></script>
+  <script src="/public/assets/elite/plugins/bower_components/tablesaw-master/dist/tablesaw.js"></script>
+  <script src="/public/assets/elite/plugins/bower_components/tablesaw-master/dist/tablesaw-init.js"></script>
+  <script src="/public/assets/elite/plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+  <script src="/public/assets/elite/plugins/bower_components/moment/moment.js"></script>
+  <script src="/public/assets/elite/plugins/bower_components/clockpicker/dist/jquery-clockpicker.min.js"></script>
+  <script src="/public/assets/elite/plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+  <script src="/public/assets/elite/plugins/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--___________________________________________menu____________________________________________________-->
+
+
+
+  <script>
+
+    function activeCurrentMenu(){
+
+      var pageUrl=window.location.pathname;
+
+      var pageUrlArray=pageUrl.split('/');
+
+      var firstUrlPart='/'+pageUrlArray[1];
+      var secondUrlPart='/'+pageUrlArray[1]+'/'+pageUrlArray[2];console.log(pageUrl,pageUrlArray,firstUrlPart,secondUrlPart);
+      var currentA=$('.sidebar-menu a.active');
+
+      if(currentA.length == 0){
+        currentA=$('.sidebar-menu a[href*="'+pageUrl+'"]').first();
+        if(currentA.length == 0){
+          currentA=$('.sidebar-menu a[href*="'+secondUrlPart+'"]').first();
+          if(currentA.length == 0){
+            currentA=$('.sidebar-menu a[href*="'+firstUrlPart+'"]').first();
+
+          }
+        }
+      }
+//      alert(currentA);
+      currentA.addClass('active');
+      currentA.parent().parent().parent().parent().parent().addClass('selected');
+
+    }
+    $(document).ready(function(){
+
+      activeCurrentMenu();
+      setTimeout('activeCurrentMenu()',1000);
+
+
+
+
+      $('.mini-nav>li').mouseover(function(){
+        $(this).click();
+      });
+
+    });
+
+
+  </script>
+
+
+
+  <!--________________________________________End____menu____________________________________________________-->
+
+
+
+  <!--______________________________________END____template______js_____________________________________________________-->
+</html>
