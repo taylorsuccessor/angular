@@ -17,6 +17,7 @@ const appRoutes: Routes = [
 
 {path: 'car', component: Car.Index , data: { title: 'Heroes List' }},
 {path: 'car/create', component: Car.Create, data: { title: 'Heroes List' }},
+{path: 'car/:id/edit', component: Car.Edit, data: { title: 'Heroes List' }},
 ];
 
 
@@ -36,6 +37,7 @@ import { HttpModule } from '@angular/http';
     adminLayout.Layout,
     Car.Index,
     Car.Create,
+    Car.Edit,
     adminLayout.Header, adminLayout.Menu
   ],
   bootstrap:    [ adminLayout.Layout ],

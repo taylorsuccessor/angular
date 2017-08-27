@@ -124,14 +124,14 @@
                    <td>{{model.timee}}</td>
                    <td>{{model.dates }}</td>
                      <td>{{model.car}}</td>
-                       <td>{{model.r1}}</td>
+                       <td>{{model.radio}}</td>
                       <td>{{model.area}}</td>
                       <td>{{i+1}}</td>
                     <td>
-                    <a routerLink="/admin/car/{{model.shop_id}}/edit" class="text-inverse p-r-10" data-toggle="tooltip" title="Edit Car" >
+                    <a routerLink="/car/{{model.shop_id}}/edit" class="text-inverse p-r-10" data-toggle="tooltip" title="Edit Car" >
                     <i class="ti-marker-alt"></i></a>
                      
-                    <a routerLink="/admin/car/{{model.shop_id}}" class="text-inverse p-r-10" data-toggle="tooltip" title="View Car">
+                    <a routerLink="/car/{{model.shop_id}}" class="text-inverse p-r-10" data-toggle="tooltip" title="View Car">
                     <i class="fa fa fa-eye" ></i></a> 
                     <a (click)="delete(model.shop_id)" class="text-inverse" title="Delete Car" data-toggle="tooltip">
                      <i class="ti-trash" ></i></a> 

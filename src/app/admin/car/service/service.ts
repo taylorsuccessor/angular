@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 export class Service {
 
   constructor(private _http: Http) { }
-  getAllList(){
+  getAllList() {
     return this._http.get("http://localhost/api_json/select.php/")
       .map(res=> {
 
@@ -17,14 +17,23 @@ export class Service {
       });
   }
 
-  
- create( request:any ) {
+ create( request: any ) {
     return this._http.post("http://localhost/api_json/add.php",request)
       .map(() => "");
   }
 
-    delete(id:number) {
+    delete(id: number) {
     return this._http.post("http://localhost/api_json/delete.php/", {'id': id})
       .map(() => this.getAllList());
+  }
+
+    edit(request: any ) {
+    return this._http.post("http://localhost/api_json/update.php/", request)
+      .map(() => "");
+  }
+
+    show(id: number) {
+    return this._http.post("http://localhost/api_json/selectone.php/", {'id': id})
+      .map(res => res.json());
   }
 }
