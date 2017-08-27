@@ -34,13 +34,14 @@ export class Show  {
   };
 
   goBack() {
-    this.router.navigate(['/admin/car']);
+    this.router.navigate(['/car']);
   }
     delete(id: number) {
       this._service
         .delete(id)
         .subscribe(() => {
-        this.getAllList();
+       this.getAllList();
+          this.goBack();
       } )
   }
 
