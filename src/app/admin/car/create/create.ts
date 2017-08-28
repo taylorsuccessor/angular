@@ -2,7 +2,7 @@ import {Component, OnInit, Input} from '@angular/core';
 import {Service} from '../service/service';
 import {Model} from '../service/model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-//import {Alert} from '../../../_service/alert/alert';
+
 
 
 @Component({
@@ -19,12 +19,11 @@ export class Create {
 
   ) {}
 
-
+createStatus;
 
   ngOnInit() {
 
   }
-//  al: Alert;
 
   create() {
     this._service
@@ -34,11 +33,13 @@ export class Create {
   checkCreateResponse(response: any) {
     if (typeof response.status !== 'undefined' && response.status == "success") {
       alert("success");
-      this.al.aler("su");
-    //  this.router.navigate(['/car']);
+      this.createStatus=true;
+     //this.router.navigate(['/car']);
     } else {
-       alert("error");
-          this.router.navigate(['/car']);
+    alert("error");
+   this.createStatus=false;
+       
+          //this.router.navigate(['/car']);
 
     }
   }

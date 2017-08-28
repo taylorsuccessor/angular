@@ -30,4 +30,5 @@ export class Service {
     return this._http.post("http://localhost/api_json/selectone.php/", {'id': id})
       .map(res => res.json());
   }
+
 }
