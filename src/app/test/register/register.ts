@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../test/service/service';
-import { User } from '../../test/service/user';
+
+import { UserService } from '../service/service';
+import { User } from '../service/user';
+
 import {ActivatedRoute, Params, Router} from '@angular/router';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.html',

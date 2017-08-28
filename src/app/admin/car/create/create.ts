@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Service } from '../service/service';
-import { Model } from '../service/model';
+import {Component, OnInit, Input} from '@angular/core';
+import {Service} from '../service/service';
+import {Model} from '../service/model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 
 
@@ -9,35 +9,37 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
   selector: 'app-create',
   templateUrl: './create.html',
 
-  providers: [Service],
+  providers: [Service, Model],
 })
-export class Create  {
-constructor(
+export class Create {
+  constructor(
     private _service: Service,
-     private router: Router,
-    ) { }
+    private router: Router,
+    private model: Model,
+  ) {}
 
-    model= new Model ();
- models: any;
+
+
   ngOnInit() {
-
-      this.models = {
-        radio: this.radios[0].value, // default to Female
-   }
 
   }
 
 
   create() {
-      this._service
-        .create(this.model)
-        .subscribe(() =>  this.goBack());
+    this._service
+      .create(this.model)
+      .subscribe((response) => this.checkCreateResponse(response));
   }
-   goBack() {
-    this.router.navigate(['/car']);
+  checkCreateResponse(response: any) {
+    if (typeof response.status !== 'undefined' && response.status == "success") {
+      alert("success");
+    } else {
+      alert(response);
+      //    this.router.navigate(['/car']);
+    }
   }
   public radios = [
-{ value: 'F', display: 'Female' } ,
-{ value:'M', display: 'Male' }
- ];
+    {value: 'F', display: 'Female'},
+    {value: 'M', display: 'Male'}
+  ];
 }

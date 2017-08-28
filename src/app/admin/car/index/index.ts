@@ -6,7 +6,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 
 
 @Component({
-  selector: 'table',
+  selector: 'table-container',
   templateUrl: './index.html',
   styleUrls: [''],
 
