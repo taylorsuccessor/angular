@@ -29,7 +29,7 @@ model = new User();
                 data => {
                           if (data.status == 'success') {
                      this.newTrustFormVisible = false;
-                    this.router.navigate(['/admin/car']);
+                    this.router.navigate(['/car']);
                 }
                 else  if (data.status == 'error') {
                              this.router.navigate(['/register']); 

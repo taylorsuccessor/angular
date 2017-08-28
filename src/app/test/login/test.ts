@@ -55,7 +55,7 @@ newTrustFormVisible: false;
   }
 
 forgetPas() {
- this.router.navigate(['/admin-recover']);
+ this.router.navigate(['/recover']);
 }
 
 ref(){
