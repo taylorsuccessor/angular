@@ -2,7 +2,7 @@ import {Component, OnInit, Input} from '@angular/core';
 import {Service} from '../service/service';
 import {Model} from '../service/model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-
+//import {Alert} from '../../../_service/alert/alert';
 
 
 @Component({
@@ -16,6 +16,7 @@ export class Create {
     private _service: Service,
     private router: Router,
     private model: Model,
+
   ) {}
 
 
@@ -23,7 +24,7 @@ export class Create {
   ngOnInit() {
 
   }
-
+  al: Alert,
 
   create() {
     this._service
@@ -38,8 +39,12 @@ export class Create {
       //    this.router.navigate(['/car']);
     }
   }
+  
   public radios = [
     {value: 'F', display: 'Female'},
     {value: 'M', display: 'Male'}
   ];
+
+
+
 }

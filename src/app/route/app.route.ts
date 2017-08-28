@@ -5,11 +5,11 @@ import * as Car from './../admin/car/index';
 import { FormsModule } from '@angular/forms';
 
 
-import * as Public from '../test/index';
+import * as Public from '../commone/index';
 
 import { RouterModule, Routes } from '@angular/router';
 
-
+import * as _Service from '../_service/index';
 
 import * as adminLayout from './../admin/layout/index';
 
@@ -49,6 +49,8 @@ import { HttpModule } from '@angular/http';
   Public.Login,
   Public.Register,
    Public.Recover,
+
+   _Service.Alert,
   ],
 
   bootstrap:    [ adminLayout.Layout ],
