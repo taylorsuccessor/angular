@@ -4,12 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import * as Car from './../admin/car/index';
 import { FormsModule } from '@angular/forms';
 
+//import { AppComponent } from './Apps/app';
 
 import * as Public from '../commone/index';
 
 import { RouterModule, Routes } from '@angular/router';
 
-import * as _Service from '../_service/index';
 
 import * as adminLayout from './../admin/layout/index';
 
@@ -63,10 +63,10 @@ import { HttpModule } from '@angular/http';
   Public.Register,
    Public.Recover,
 
-   _Service.Alert,
   ],
  //providers: [AuthGuard],
-  bootstrap:    [ adminLayout.Layout ],
+  bootstrap:    [ adminLayout.Layout],
+ // bootstrap: [AppComponent],
 
 })
 export class AppRoute { }

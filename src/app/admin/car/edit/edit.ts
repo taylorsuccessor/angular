@@ -38,9 +38,19 @@ constructor(
   };
 
   edit() {
-      this._service
-        .edit(this.model)
-        .subscribe(()=> this.goBack());
+    this._service
+      .edit(this.model)
+      .subscribe((response) => this.checkCreateResponse(response));
+  }
+  checkCreateResponse(response: any) {
+    if (typeof response.status !== 'undefined' && response.status == "success") {
+      alert("success");
+     this.router.navigate(['/car']);
+    } else {
+       alert("error");
+          this.router.navigate(['/car']);
+
+    }
   }
 
    goBack() {

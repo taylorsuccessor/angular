@@ -2,7 +2,7 @@ import {Component, OnInit, Input} from '@angular/core';
 import {Service} from '../service/service';
 import {Model} from '../service/model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-//import {Alert} from '../../../_service/alert/alert';
+
 
 
 @Component({
@@ -19,7 +19,7 @@ export class Create {
 
   ) {}
 
-
+createStatus:any;
 
   ngOnInit() {
 
@@ -34,9 +34,14 @@ create() {
   checkCreateResponse(response: any) {
     if (typeof response.status !== 'undefined' && response.status == "success") {
       alert("success");
+      this.createStatus=true;
+     //this.router.navigate(['/car']);
     } else {
-      alert(response);
-      //    this.router.navigate(['/car']);
+    alert("error");
+   this.createStatus=false;
+       
+          //this.router.navigate(['/car']);
+
     }
   }
   public radios = [

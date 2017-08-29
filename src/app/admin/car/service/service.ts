@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-@Injectable()
+@Injectable() 
 export class Service {
 
   constructor(private _http: Http) { }
@@ -30,4 +30,5 @@ export class Service {
     return this._http.post("http://localhost/api_json/selectone.php/", {'id': id})
       .map(res => res.json());
   }
+
 }

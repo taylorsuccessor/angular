@@ -9,10 +9,21 @@
                     </div>
                     </div>
                 </div>
-             
 
  <div class="white-box">   
    <div class="row bg-title">
+
+     
+
+ <div class="alert alert-success alert-dismissable"   *ngIf="createStatus== true">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+    <strong>Success!</strong> This alert box could indicate a successful or positive action.
+  </div>
+
+<div class="alert alert-danger alert-dismissable"  *ngIf="createStatus== false">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+    <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+  </div>
     
 <form class="form-horizontal" role="form" (submit)="create()">
         <div class="form-body">
