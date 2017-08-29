@@ -24,9 +24,9 @@ export class Create {
   ngOnInit() {
 
   }
-  //al: Alert;
 
-  create() {
+
+create() {
     this._service
       .create(this.model)
       .subscribe((response) => this.checkCreateResponse(response));
@@ -39,7 +39,6 @@ export class Create {
       //    this.router.navigate(['/car']);
     }
   }
-  
   public radios = [
     {value: 'F', display: 'Female'},
     {value: 'M', display: 'Male'}
