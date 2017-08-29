@@ -1,3 +1,4 @@
 export * from './index/layout';
-export * from './partials/header/header';
-export * from './partials/menu/menu';
+export * from './../../common/partials/header/header';
+export * from './../../common/partials/menu/menu';
+export * from './../../common/partials/pagination/pagination';

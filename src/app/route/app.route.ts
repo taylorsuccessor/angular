@@ -45,7 +45,9 @@ const appRoutes: Routes = [
     Car.Create,
     Car.Edit,
     Car.Show,
-    adminLayout.Header, adminLayout.Menu,
+    adminLayout.Header,
+     adminLayout.Menu,
+     adminLayout.Pagination,
 
   Common.Login,
   Common.Register,
