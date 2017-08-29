@@ -2,9 +2,15 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import * as Car from './../admin/car/index';
+import {Init} from './../commone/init/init';
+
+import { COMMON_ROUTE } from '../commone/init/common.route' ;
+
+import {ADMIN_ROUTE} from '../admin/layout/layout.routes';
+
 import { FormsModule } from '@angular/forms';
 
-//import { AppComponent } from './Apps/app';
+import { AppComponent } from './../Apps/app';
 
 import * as Public from '../commone/index';
 
@@ -13,29 +19,28 @@ import { RouterModule, Routes } from '@angular/router';
 
 import * as adminLayout from './../admin/layout/index';
 
-//import { AuthGuard } from './../common/auth.guard';
-//import { LAYOUT_ROUTES } from './admin/layout/layout';
-//import { LAYOUT2_ROUTES } from './commone/layout2/layout2';
+import { AuthGuard } from '../layoutSwitcher/auth.guard';
+
 
 
 const appRoutes: Routes = [
 
-{path: 'car', component: Car.Index , data: { title: 'Car List' }},
-{path: 'car/create', component: Car.Create, data: { title: 'Create List' }},
-{path: 'car/:id/edit', component: Car.Edit, data: { title: 'Edit List' }},
-{path: 'car/:id', component: Car.Show, data: { title: 'Show List' }},
+//{path: 'car', component: Car.Index , data: { title: 'Car List' }},
+//{path: 'car/create', component: Car.Create, data: { title: 'Create List' }},
+//{path: 'car/:id/edit', component: Car.Edit, data: { title: 'Edit List' }},
+//{path: 'car/:id', component: Car.Show, data: { title: 'Show List' }},
+//
+//{path: 'login', component: Public.Login, data: { title: 'Test List' }},
+//{path: 'register', component: Public.Register, data: { title: 'Register List' }},
+//{path: 'recover', component: Public.Recover, data: { title: 'Recover List' }},
 
-{path: 'login', component: Public.Login, data: { title: 'Test List' }},
-{path: 'register', component: Public.Register, data: { title: 'Register List' }},
-{path: 'recover', component: Public.Recover, data: { title: 'Recover List' }},
 
-/*
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-    { path: '', component: Layout2, data: { title: 'Public Views' }, children: LAYOUT2_ROUTES },
-     { path: '', component: Layout, canActivate: [AuthGuard],  data: { title: 'Secure Views' }, children: LAYOUT_ROUTES },
+    { path: '', component: Init, data: { title: 'Login Views' }, children: COMMON_ROUTE },
+     { path: '', component: adminLayout.Layout, canActivate: [AuthGuard],  data: { title: 'Secure Views' }, children: ADMIN_ROUTE },
 
     { path: '**', redirectTo: 'login' }
-*/
+
 ];
 
 
@@ -50,8 +55,12 @@ import { HttpModule } from '@angular/http';
     ),
     HttpModule,
     FormsModule,
+    
   ],
   declarations: [
+    
+    Init,
+    
     adminLayout.Layout,
     Car.Index,
     Car.Create,
@@ -62,10 +71,10 @@ import { HttpModule } from '@angular/http';
   Public.Login,
   Public.Register,
    Public.Recover,
-
+AppComponent
   ],
- //providers: [AuthGuard],
-  bootstrap:    [ adminLayout.Layout],
+ providers: [AuthGuard],
+  bootstrap:    [ AppComponent],
  // bootstrap: [AppComponent],
 
 })
