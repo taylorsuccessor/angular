@@ -19,7 +19,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import * as adminLayout from './../admin/layout/index';
 
-import { AuthGuard } from '../layoutSwitcher/auth.guard';
+
 
 
 
@@ -37,7 +37,7 @@ const appRoutes: Routes = [
 
   { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: '', component: Init, data: { title: 'Login Views' }, children: COMMON_ROUTE },
-     { path: '', component: adminLayout.Layout, canActivate: [AuthGuard],  data: { title: 'Secure Views' }, children: ADMIN_ROUTE },
+     { path: '', component: adminLayout.Layout,  data: { title: 'Secure Views' }, children: ADMIN_ROUTE },
 
     { path: '**', redirectTo: 'login' }
 
@@ -73,7 +73,7 @@ import { HttpModule } from '@angular/http';
    Public.Recover,
 AppComponent
   ],
- providers: [AuthGuard],
+ providers: [],
   bootstrap:    [ AppComponent],
  // bootstrap: [AppComponent],
 
