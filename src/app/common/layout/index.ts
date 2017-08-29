@@ -1,2 +1,2 @@
-export * from './layout';
-export * from './common.route' ;
+export * from './index/layout';
+
