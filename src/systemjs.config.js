@@ -6,7 +6,10 @@
   System.config({
     paths: {
       // paths serve as alias
-      'npm:': 'node_modules/'
+      
+      'npm:': 'node_modules/' ,
+   //   'underscore': 'node_modules/underscore/underscore.js'
+     
     },
     // map tells the System loader where to look for things
     map: {
@@ -25,7 +28,8 @@
 
       // other libraries
       'rxjs':                      'npm:rxjs',
-      'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
+      'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
+'underscore':                 'npm:underscore',
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -37,9 +41,15 @@
           }
         }
       },
+           'underscore':{
+       main: './underscore.js', 
+       defaultExtension: 'js'
+       },
       rxjs: {
         defaultExtension: 'js'
       }
     }
+
   });
+  
 })(this);

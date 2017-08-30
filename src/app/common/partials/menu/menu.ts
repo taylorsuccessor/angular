@@ -18,7 +18,7 @@ import { Subject } from 'rxjs/Subject';
                         <!-- /input-group -->
                     </li>
                     <li class="user-pro">
-                        <a routerLink="/car" class="waves-effect"><i class="fa fa fa-dashboard" data-icon="v"></i> <span class="hide-menu"> Dashboard<span class="fa arrow"></span></span>
+                        <a routerLink="/login" class="waves-effect"><i class="fa fa fa-dashboard" data-icon="v"></i> <span class="hide-menu"> Dashboard<span class="fa arrow"></span></span>
                         </a>
                         <ul class="nav nav-second-level">
                             <li><a routerLink="/car"> Dashboard</a></li>
@@ -28,10 +28,6 @@ import { Subject } from 'rxjs/Subject';
                     <li class="nav-small-cap m-t-10">--- Main Menu</li>
                     <li> <a routerLink="/car" class="waves-effect"><i class="fa fa  fa-coffee" data-icon="v"></i> <span class="hide-menu"> Coffe <span class="fa arrow"></span> <span class="label label-rouded label-custom pull-right">1</span></span></a>
                         <ul class="nav nav-second-level" >
-                                    <!--8/10/2017 
-                             <li> <a routerLink="/home">Shop</a> </li>
-                              <li> <a routerLink="/homec">Car</a> </li>
-                              -->
                               <li> <a routerLink="/car">Car</a> </li>
                                     <li> <a routerLink= "/car/create">Create New Car</a> </li>   
                         </ul>

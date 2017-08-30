@@ -25,7 +25,7 @@
     <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
   </div>
     
-<form class="form-horizontal" role="form" (submit)="create()">
+<form class="form-horizontal" name="form" (ngSubmit)="f.form.valid &&  create()" #f="ngForm" novalidate>
         <div class="form-body">
                 <h3 class="box-title">create</h3>
                  <hr class="m-t-0 m-b-40">
@@ -50,19 +50,18 @@
   
                    
                                  
-            <div class="col-md-6">
-                    <div class="form-group">
+          <div class="col-md-6">
+                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
               <label class="control-label col-md-3">Email:</label>
                    <div class="col-md-9">
               <p class="form-control-static"> 
-              <input #emailInput="ngModel"  [(ngModel)]="model.email" type="email" name="email" class="form-control" placeholder="Email"
-               pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" />
-
+              <input type="text" class="form-control" name="email" [(ngModel)]="model.email" placeholder="Email" #email="ngModel" required   pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"/>
             
                                                              </p>
-                  <div class="alert alert-danger" *ngIf="emailInput.errors && (emailInput.dirty || emailInput.touched)">
-                <span [hidden]="!emailInput.errors.pattern"> please enter a valid email </span>
-                  </div>
+             <div *ngIf="f.submitted && !email.valid" class="help-block">email is required</div>
+                   <div class="alert alert-danger" *ngIf="email.errors && (email.dirty || email.touched)">
+                <span  > please enter a valid email </span>
+                  </div> 
                   </div>
                   </div>
                   </div>
@@ -166,6 +165,4 @@
                   </div>
                  </form>
                  </div></div>
-                 
-                 
-                 
+              

@@ -1,4 +1,4 @@
-//import * as _ from 'underscore';
+import * as _ from 'underscore';
 
 export class PagerService {
     getPager(totalItems: number, currentPage: number = 1, pageSize: number = 5) {
@@ -29,7 +29,7 @@ export class PagerService {
         let endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
 
         // create an array of pages to ng-repeat in the pager control
-     //   let pages = _.range(startPage, endPage + 1);
+      let pages = _.range(startPage, endPage + 1);
 
         // return object with all pager properties required by the view
         return {
@@ -41,7 +41,7 @@ export class PagerService {
             endPage: endPage,
             startIndex: startIndex,
             endIndex: endIndex,
-            pages: ''//pages
+            pages: pages //pages
         };
     }
 }

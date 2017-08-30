@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-//import * as _ from 'underscore';
+import * as _ from 'underscore';
 import { PagerService } from './pager.service';
 
 
