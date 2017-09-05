@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 
@@ -100,7 +100,7 @@ import { Subject } from 'rxjs/Subject';
                     </li>
   
                     <li class="dropdown">
-                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="style/plugins/images/users/dd.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Admin</b> </a>
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="style/plugins/images/users/dd.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">{{name}}</b> </a>
                         <ul class="dropdown-menu dropdown-user animated flipInY">
                                       <li role="separator" class="divider"></li>
                             <li><a routerLink="/"><i class="fa fa-power-off"></i> Logout</a></li>
@@ -124,7 +124,12 @@ import { Subject } from 'rxjs/Subject';
 })
 export class Header  {
 
+  @Input() name:string;
+  
 
+  ngOnInit() {
+
+  }
 
 
 }

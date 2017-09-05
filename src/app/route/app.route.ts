@@ -9,7 +9,8 @@ import { HttpModule } from '@angular/http';
 
 
 
-/*___________________________mainContainer__Common__admin_________________________*/
+/*________________________________mainContainer__Common__admin_________________________*/
+
 import { MainContainer } from './../mainContainer/mainContainer';
 
 import * as Common from '../common/index';
@@ -22,6 +23,7 @@ import * as Admin from '../admin/index';
 
 
 
+
 const appRoutes: Routes = [
 
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -29,8 +31,7 @@ const appRoutes: Routes = [
      { path: '', component: Admin.Layout.Layout ,  data: { title: 'Secure Views' }, children: Admin.ROUTE },
     { path: '**', redirectTo: 'login' }
 ];
-
-
+  
 
 @NgModule({
   imports:      [ BrowserModule,
@@ -41,10 +42,9 @@ const appRoutes: Routes = [
     FormsModule,
   ],
   declarations: [
-    
-MainContainer,
-    Common.Components,
 
+MainContainer,
+Common.Components,
 Admin.Components
   ],
  providers: [],
@@ -52,4 +52,5 @@ Admin.Components
 
 
 })
+  
 export class AppRoute { }
