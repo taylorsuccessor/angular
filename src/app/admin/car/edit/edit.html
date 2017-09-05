@@ -12,19 +12,19 @@
  <div class="white-box">   
    <div class="row bg-title">
     
-<form class="form-horizontal" role="form" (submit)="edit()">
+<form class="form-horizontal" name="form" (ngSubmit)="f.form.valid &&  edit()" #f="ngForm" novalidate>
                      <div class="form-body">
                 <h3 class="box-title">Edit</h3>
                  <hr class="m-t-0 m-b-40">
                      <div class="row">
                         <div class="col-md-6">
-                     <div class="form-group">
+                         <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !nameInput.valid }">
                <label class="control-label col-md-3">Name:</label>
                      <div class="col-md-9">
                <p class="form-control-static"   > 
                <input  #nameInput="ngModel" type="text" class="form-control" id="inputName1"  [(ngModel)]="model.name" name="name"   maxlength="7" minlength="3" placeholder="enter name" required >
                </p>
-                     
+                 <div *ngIf="f.submitted && !nameInput.valid" class="help-block">Name is required</div>     
                      <div class="alert alert-danger" *ngIf="nameInput.errors && (nameInput.dirty || nameInput.touched)">
                 <span [hidden]="nameInput.errors.maxlength">Please enter a valid name maximum 7 & min 3 </span>     
             </div></div>
@@ -33,18 +33,18 @@
                     
                                             <!--/row-->
                   
-                    <div class="col-md-6">
-                    <div class="form-group">
+                  <div class="col-md-6">
+                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
               <label class="control-label col-md-3">Email:</label>
                    <div class="col-md-9">
               <p class="form-control-static"> 
-              <input #emailInput="ngModel"
-             pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" 
-             [(ngModel)]="model.email" type="text" name="email" class="form-control" placeholder="Email"/>
+              <input type="text" class="form-control" name="email" [(ngModel)]="model.email" placeholder="Email" #email="ngModel" required   pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"/>
+            
                                                              </p>
-                  <div class="alert alert-danger" *ngIf="emailInput.errors && (emailInput.dirty || emailInput.touched)">
-                <span [hidden]="!emailInput.errors.pattern"> please enter a valid email </span>
-                  </div>
+             <div *ngIf="f.submitted && !email.valid" class="help-block">email is required</div>
+                   <div class="alert alert-danger" *ngIf="email.errors && (email.dirty || email.touched)">
+                <span  > please enter a valid email </span>
+                  </div> 
                   </div>
                   </div>
                   </div>

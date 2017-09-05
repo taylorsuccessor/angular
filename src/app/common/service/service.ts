@@ -16,7 +16,7 @@ export class UserService {
                 if (user && user.token) {
                     localStorage.setItem('currentUser', JSON.stringify(user));
                 }else {
-           alert(user.status);
+     //      alert(user.status);
                 }
               return user;
             });
@@ -49,7 +49,7 @@ success(mes: string) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify(user));
                 }else {
-           alert(user.status);
+          // alert(user.status);
                 }
               return user;
             });

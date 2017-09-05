@@ -5,6 +5,9 @@
       true,
       "check-space"
     ],
+      "scripts": [
+    "../node_modules/underscore/underscore.js"
+  ],
     "curly": true,
     "eofline": true,
     "forin": true,

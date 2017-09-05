@@ -144,8 +144,25 @@
          <h4>   total of row: {{ models.length }}</h4>
             </div>
 
-
-
+  <!-- ____________________start Page________________________________________________________-->
+        
+ <div class="btn-toolbar" role="toolbar" style="margin: 0;">
+          <div class="btn-group">
+               <label style="margin-top:10px">Page {{currentIndex}}/{{pageNumber}}</label>
+            </div>
+            <div class="btn-group pull-right">
+               <ul class="pagination" >
+                  <li [ngClass]="{'disabled': (currentIndex == 1 || pageNumber == 0)}" ><a  (click)="prevPage()" href="#">Prev</a></li>
+                     <li *ngFor="let page of pagesIndex"  [ngClass]="{'active': (currentIndex == page)}">
+                        <a (click)="setPage(page)" href="#" >{{page}}</a>
+                     </li>
+                  <li [ngClass]="{'disabled': (currentIndex == pageNumber || pageNumber == 0)}" ><a   (click)="nextPage()" href="#">Next</a></li>
+               </ul>
+            </div>
+         </div>
+     
+<!-- ____________________end Page________________________________________________________-->
+    <app-pagination></app-pagination>
 
               </div>
               
@@ -153,8 +170,8 @@
 
           </div>  
       </div>
+    
 
-      <app-pagination></app-pagination>
 
       <div class="right-sidebar" style="overflow: hidden; width: auto; height: 100%;">
                     <div class="slimscrollright">
