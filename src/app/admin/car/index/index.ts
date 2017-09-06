@@ -48,12 +48,11 @@ export class Index  {
   }
 
   getAllList() {
-
+//wss://arabtrader.com:9004/HOB
+    //ws://echo.websocket.org/
 
    // this.listener.observe('http://localhost:3000?name=1').subscribe(data => console.log(data) );
-this.chatService.connect('ws://echo.websocket.org/');
-    
-    
+this.chatService.createObservable().subscribe((data:any) => console.log(data.data,'sunnnnbscribe') );
     this._service
       .getAllList()
       .subscribe(models => {
@@ -70,6 +69,10 @@ this.chatService.connect('ws://echo.websocket.org/');
       });
   }
 
+  sendData(){
+  this.chatService.ws.send('do some thing here');
+  
+  }
 
  init(){
          this.currentIndex = 1;

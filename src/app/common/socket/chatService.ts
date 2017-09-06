@@ -3,39 +3,62 @@ import {Injectable} from '@angular/core';
 import * as Rx from 'rxjs/Rx';
 
 
-Injectable()
+Injectable( )
 export class ChatService {
   private socket: Rx.Subject<MessageEvent>;
-  
-  public connect(url:any): Rx.Subject<MessageEvent> {
-    if(!this.socket) {
+
+  ws: WebSocket;
+
+  public constructor() {
+  this.ws = new WebSocket('ws://localhost:5000/');
+  }
+
+  public connect(url: any): Rx.Subject<MessageEvent> {
+    if (!this.socket) {
       this.socket = this.create(url);
     }
     return this.socket;
   }
 
 
+  private create(url: any): Rx.Subject<MessageEvent> {
 
+      this.ws.onopen =  () => {
+            console.log('Opening a connection...');
+            this.ws.send('this is sent data');
+        };
   
-  private create(url:any): Rx.Subject<MessageEvent> {
-    let ws = new WebSocket(url);
+
     let observable = Rx.Observable.create(
         (obs: Rx.Observer<MessageEvent>) => {
-            ws.onmessage = obs.next.bind(obs);
-            ws.onerror = obs.error.bind(obs);
-            ws.onclose = obs.complete.bind(obs);
-            return ws.close.bind(ws);
+            this.ws.onmessage = obs.next.bind(obs); 
+            this.ws.onerror = obs.error.bind(obs);
+            this.ws.onclose = obs.complete.bind(obs);
+            return this.ws.close.bind(this.ws);
         }
     );
+
     let observer = {
         next: (data: Object) => {
-            if (ws.readyState === WebSocket.OPEN) {
-                ws.send(JSON.stringify(data));
+            if (this.ws.readyState === WebSocket.OPEN) {
+                this.ws.send(JSON.stringify(data));
             }
         },
     };
     return Rx.Subject.create(observer, observable);
+    
+    
 }
+  
+  public createObservable(){
+  
+      this.ws.onopen =  () => {
+            console.log('Opening a connection...');
+            this.ws.send('this is sent data');
+        };
+  
+  return Rx.Observable.create((obs:any)=>{ this.ws.onmessage = obs.next.bind(obs);});
+  }
 
 }
 
