@@ -56,6 +56,7 @@ export class ChatService {
             console.log('Opening a connection...');
             this.ws.send('this is sent data');
         };
+    
   
   return Rx.Observable.create((obs:any)=>{ this.ws.onmessage = obs.next.bind(obs);});
   }
